@@ -7,12 +7,14 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         print(f'Message from {message.author}: {message.content}')
     async def on_voice_state_update(self, member, before, after):
+        if before.channel == after.channel:
+            return
         if not before.channel == None:
             c = f'Goodbye {member.display_name}'
-            await before.channel.send(content=c, tts=True)
-        if not after.channel == None:
-            c = f'I SEE YOU {member.display_name}'
-            await after.channel.send(content=c, tts=True)
+            await before.channel.send(content=c, tts=False)
+#        if not after.channel == None:
+#            c = f'I SEE YOU {member.display_name}'
+#            await after.channel.send(content=c, tts=True)
 
 
 
