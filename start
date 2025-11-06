@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Starting environment"
+source ./.venv/bin/activate
+echo "Starting bot script as background process"
+python3 bot.py & 
+echo "Deactivating environment"
+deactivate
