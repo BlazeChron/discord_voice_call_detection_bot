@@ -3,6 +3,10 @@ import datetime
 
 import logging
 
+import setproctitle
+
+setproctitle.setproctitle("disc_vc_callout")
+
 MAX_LENGTH = 5
 names = []
 name_dic = {}
